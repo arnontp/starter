@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+	<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+		<head th:replace="fragments/header :: header-css"/>	       
+		</head>
+	<body>		
+		<div th:replace="fragments/header :: header" ></div>		
+		<div class="container">
+		     
+		     
+		     <div class ="col-lg-12">
+		     	<div class = "row">
+		     	
+			     	<div class = "col-lg-12" >
+				     	<div class="panel panel-default"> 
+						  <div class="panel-heading"><i class="fa fa-user" aria-hidden="true"></i></div>
+						  <div class="panel-body">
+						    <form autocomplete="off" action="#" th:action="@{/users/add}" th:object="${user}" method="post"   role="form">
+								 
+							
+						 		<div class = "col-lg-12">
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	<label  for="username" > <i class="fa fa-user" aria-hidden="true"></i> ชื่อผู้ใช้</label>									  					  
+										     
+										  </div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	 <font th:if = "${user.name!=null}" th:text="${user.name}" ></font>	 
+										</div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	<label  for="username" > <i class="fa fa-user" aria-hidden="true"></i> นามสกุล</label>		 
+										</div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	 <font th:if = "${user.lastName!=null}"  th:text="${user.lastName}" ></font>		 
+										</div>
+						 			</div>
+						 		</div>
+						 		<div class = "col-lg-12">
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	<label  for="username" >  <i class="fa fa-user" aria-hidden="true"></i>  ชื่อชื่อผู้ใช้งาน</label>									  					  
+										     
+										  </div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	 <font th:if = "${user.username!=null}" th:text="${user.username}" ></font>	 
+										</div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	<label  for="username" > <i class="fa fa-ban" aria-hidden="true"></i> สถานะ</label>		 
+										</div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+ 
+										  	<font th:if = "${user.active == 1}" ><i  class="fa fa-eye" aria-hidden="true"></i> ปกติ  </font> 
+					     					<font th:if = "${user.active == 0}" ><i  class="fa fa-eye-slash" aria-hidden="true"></i> ปิดใช้งาน  </font> 
+ 
+										  	<i th:if = "${user.active == 1}" class="fa fa-eye" aria-hidden="true"></i>
+					     					<i th:if = "${user.active == 0}" class="fa fa-eye-slash" aria-hidden="true"></i> 
+ 
+										</div>
+						 			</div>
+						 		</div>
+						 		<div class = "col-lg-12">
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	<label  for="username" > <i class="fa fa-male" aria-hidden="true"></i> เพศ</label>									  					  
+										     
+										  </div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	 <font th:if = "${user.gender!=null}" th:text="${user.gender}" ></font>	 
+										</div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	<label  for="username" > <i class="fa fa-smile-o" aria-hidden="true"></i> ชื่อเล่น</label>		 
+										</div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	 <font th:if = "${user.nickName!=null}" th:text="${user.nickName}" ></font>		 
+										</div>
+						 			</div>
+						 		</div>
+						 		<div class = "col-lg-12">
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	<label  for="username" > <i class="fa fa-key" aria-hidden="true"></i> รหัสผู้ใช้งาน</label>									  					  
+										     
+										  </div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	 <font th:if = "${user.code!=null}" th:text="${user.code}" ></font>	 
+										</div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	<label  for="username" > <i class="fa fa-user-circle" aria-hidden="true"></i> ชื่อ - ภาษาอังกฤษ</label>		 
+										</div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	 <font th:if = "${user.nameEnglish!=null}" th:text="${user.nameEnglish}" ></font>		 
+										</div>
+						 			</div>
+						 		</div>
+						 		<div class = "col-lg-12">
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	<label  for="username" > <i class="fa fa-envelope-o" aria-hidden="true"></i> Email </label>									  					  
+										     
+										  </div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	 <font th:if = "${user.email!=null}" th:text="${user.email}" ></font>	 
+										</div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	<label  for="username" > <i class="fa fa-user-circle" aria-hidden="true"></i> รหัสบัตรประชาชน </label>		 
+										</div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	 <font th:if = "${user.cardId!=null}" th:text="${user.cardId}" ></font>		 
+										</div>
+						 			</div>
+						 		</div>
+						 		<div class = "col-lg-12">
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	<label  for="username" > <i class="fa fa-birthday-cake" aria-hidden="true"></i> วันเกิดบนบัตรประชาชน </label>									  					  										     
+										  </div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	 <font th:if = "${user.birthdayCard!=null}" th:text="${#dates.format(user.birthdayCard, 'dd-MM-yyyy')}" ></font>	 
+										</div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	<label  for="username" > <i class="fa fa-birthday-cake" aria-hidden="true"></i> วันเกิดจริง </label>		 
+										</div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	 <font th:if = "${user.birthdayBorn!=null}" th:text="${#dates.format(user.birthdayBorn, 'dd-MM-yyyy')}" ></font>		 
+										</div>
+						 			</div>
+						 		</div>
+						 		<div class = "col-lg-12">
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	<label  for="username" > <i class="fa fa-book" aria-hidden="true"></i> เลขที่บัญชี </label>									  					  
+										     
+										  </div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	 <font th:if = "${user.bookbankNo!=null}" th:text="${user.bookbankNo}" ></font>	 
+										</div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	<label  for="username" > <i class="fa fa-university" aria-hidden="true"></i> สาขา  </label>		 
+										</div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	 <font th:if = "${user.bookbankBranch!=null}" th:text="${user.bookbankBranch}" ></font>		 
+										</div>
+						 			</div>
+						 		</div>
+						 		<div class = "col-lg-12">
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	<label  for="username" > <i class="fa fa-mobile" aria-hidden="true"></i> เบอร์โทรศัพท์ ส่วนตัว </label>									  					  
+										     
+										  </div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	 <font th:if = "${user.telephonePrivate!=null}" th:text="${user.telephonePrivate}" ></font>	 
+										</div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	<label  for="username" > <i class="fa fa-phone" aria-hidden="true"></i> เบอร์โทรศัพท์ office  </label>		 
+										</div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	 <font th:if = "${user.telephoneCompany!=null}" th:text="${user.telephoneCompany}" ></font>		 
+										</div>
+						 			</div>
+						 		</div>
+						 		<div class = "col-lg-12">
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	<label  for="username" > <i class="fa fa-calendar" aria-hidden="true"></i> วันเริ่มต้นทำงาน</label>									  					  
+										     
+										  </div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	 <font th:if = "${user.startDate!=null}" th:text="${#dates.format(user.startDate, 'dd-MM-yyyy')}" ></font>	 
+										</div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	<label  for="username" > <i class="fa fa-calendar" aria-hidden="true"></i> Probation รอบ 45 วัน </label>		 
+										</div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	 <font th:if = "${user.prodateMid!=null}" th:text="${#dates.format(user.prodateMid, 'dd-MM-yyyy')}" ></font>		 
+										</div>
+						 			</div>
+						 		</div>
+						 		<div class = "col-lg-12">
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	<label  for="username" > <i class="fa fa-calendar" aria-hidden="true"></i> Probation รอบ 90 วัน </label>									  					  
+										     
+										  </div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	 <font th:if = "${user.prodateEnd!=null}" th:text="${#dates.format(user.prodateEnd, 'dd-MM-yyyy')}" ></font>	 
+										</div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	<label  for="username" > <i class="fa fa-calendar" aria-hidden="true"></i> วันสิ้นสุด Probation </label>		 
+										</div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	 <font th:if = "${user.prodateFinal!=null}" th:text="${#dates.format(user.prodateFinal, 'dd-MM-yyyy')}" ></font>		 
+										</div>
+						 			</div>
+						 		</div>
+						 		<div class = "col-lg-12">
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	<label  for="username" > <i class="fa fa-globe" aria-hidden="true"></i> Location</label>									  					  
+										     
+										  </div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	 <font th:if = "${user.location.name!=null}" th:text="${user.location.name}" ></font>	 
+										</div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	<label  for="username" > <i class="fa fa-smile-o" aria-hidden="true"></i> Position</label>		 
+										</div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	 <font th:if = "${user.position.name!=null}" th:text="${user.position.name}" ></font>		 
+										</div>
+						 			</div>
+						 		</div>
+						 		<div class = "col-lg-12">
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	<label  for="username" > <i class="fa fa-home" aria-hidden="true"></i> Division</label>									  					  
+										     
+										  </div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	 <font th:if = "${user.position.division.name!=null}" th:text="${user.position.division.name}" ></font>	 
+										</div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	<label  for="username" > <i class="fa fa-home" aria-hidden="true"></i> Department</label>		 
+										</div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	  <font th:if = "${user.position.division.department.name!=null}" th:text="${user.position.division.department.name}" ></font>	
+										</div>
+						 			</div>
+						 		</div>
+						 		 <div class = "col-lg-12">
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	<label  for="username" > <i class="fa fa-male" aria-hidden="true"></i> แนะนำโดย </label>									  					  
+										     
+										  </div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	  <font th:if = "${user.recruitmentSource!=null}" th:text="${user.recruitmentSource}" ></font>		 
+										</div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	<label  for="username" > <i class="fa fa-id-card-o" aria-hidden="true"></i> สัญญาจ้าง  </label>									  					  
+										     
+										  </div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	  <font th:if = "${user.contract!=null}" th:text="${user.contract.name}" ></font>		 
+										</div>
+						 			</div>
+						 			
+						 		</div>
+						 		<div class = "col-lg-12">
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	<label  for="username" > <i class="fa fa-home" aria-hidden="true"></i> ที่อยู่ </label>		 
+										</div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	  <font th:if = "${user.address!=null}" th:text="${user.address}" ></font>			 
+										</div>
+						 			</div>
+						 		</div>
+						 		<div class = "col-lg-12">
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	<label  for="username" > <i class="fa fa-clock-o" aria-hidden="true"></i> สร้างเมื่อ  </label>									  					  
+										     
+										  </div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	  <font th:if = "${user.created!=null}"   th:text="${#dates.format(user.created, 'dd-MM-yyyy HH:mm')}" ></font>		 
+										</div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	<label  for="username" > <i class="fa fa-clock-o" aria-hidden="true"></i> แก้ไขล่าสุด  </label>									  					  
+										     
+										  </div>
+						 			</div>
+						 			<div class = "col-lg-3">
+						 				<div class="form-group">	
+										  	  <font th:if = "${user.updated!=null}"  th:text="${#dates.format(user.updated, 'dd-MM-yyyy HH:mm')}" ></font>  
+										</div>
+						 			</div>
+						 			
+						 		</div>
+ 		
+						 		 
+					 
+						 	 
+							  	 
+							  	 <div class = "col-lg-12 center">
+								  	<a  th:href = "@{/users}" class="btn btn-info"><i class="fa fa-chevron-left" aria-hidden="true"></i> back </a>								 
+							  	</div>
+							 	 
+							</form>
+						  </div>
+						</div>
+					</div>
+					
+					 
+				</div>
+		     </div>
+		</div>	
+		<div th:replace="fragments/footer :: footer" ></div>	
+		 
+	</body>
+</html>
